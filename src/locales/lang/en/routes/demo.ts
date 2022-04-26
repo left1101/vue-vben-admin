@@ -103,6 +103,7 @@ export default {
   },
   form: {
     form: 'Form',
+    customFormShow: 'Custom Form Show',
     basic: 'Basic',
     useForm: 'useForm',
     refForm: 'RefForm',

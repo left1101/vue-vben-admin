@@ -23,7 +23,6 @@ const comp: AppRouteModule = {
         title: t('routes.demo.comp.basic'),
       },
     },
-
     {
       path: 'form',
       name: 'FormDemo',
@@ -34,6 +33,14 @@ const comp: AppRouteModule = {
         title: t('routes.demo.form.form'),
       },
       children: [
+        {
+          path: 'customFormShow',
+          name: 'customFormShow',
+          component: () => import('/@/views/demo/form/CustomFormShow.vue'),
+          meta: {
+            title: t('routes.demo.form.customFormShow'),
+          },
+        },
         {
           path: 'basic',
           name: 'FormBasicDemo',

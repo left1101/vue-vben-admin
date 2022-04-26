@@ -91,6 +91,7 @@
 
       const getClass = computed(() => {
         return [
+          'mytheme',
           prefixCls,
           {
             [`${prefixCls}--dense`]: props.dense,
@@ -167,9 +168,13 @@
 
   .@{prefix-cls} {
     position: relative;
+    margin: 20px;
+    border-radius: 12px;
+    overflow: hidden;
 
     .@{prefix-cls}-content {
-      margin: 16px;
+      background-color: @component-background;
+      padding: 16px 24px;
     }
 
     .ant-page-header {

@@ -1,0 +1,15 @@
+@import './vars';
+
+.@{theme-name} .ant-select {
+  &-item {
+    &-option {
+      &-active:not(&-disabled) {
+        background-color: @primary-1;
+      }
+
+      &-selected:not(&-disabled) {
+        background-color: @primary-2;
+      }
+    }
+  }
+}

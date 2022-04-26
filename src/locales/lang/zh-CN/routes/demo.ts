@@ -99,6 +99,7 @@ export default {
   },
   form: {
     form: 'Form',
+    customFormShow: '自定义表单展示',
     basic: '基础表单',
     useForm: 'useForm',
     refForm: 'RefForm',
