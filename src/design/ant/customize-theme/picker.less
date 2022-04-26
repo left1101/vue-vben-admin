@@ -2,4 +2,99 @@
 
 .@{theme-name} .ant-picker {
   display: flex;
+  background-color: @input-bg-color;
+  border: none;
+
+  &-dropdown {
+    min-width: 100%;
+  }
+
+  &-panel,
+  &-time-panel {
+    width: 100%;
+
+    .ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected {
+      padding: 0 10px;
+      scrollbar-width: none;
+
+      & > .ant-picker-time-panel-cell-inner {
+        background-color: @primary-color;
+        color: rgb(255 255 255 / 90%);
+      }
+    }
+  }
+
+  &-panel-container {
+    min-width: 100%;
+
+    .ant-picker-panels {
+      min-width: 100%;
+
+      .ant-picker-panel {
+        width: 100%;
+
+        .ant-picker-cell
+          .ant-picker-cell-in-view
+          .ant-picker-cell-range-start
+          .ant-picker-cell-range-start-single {
+          & > .ant-picker-cell-inner {
+            background-color: @primary-color !important;
+            border-radius: 50% !important;
+          }
+        }
+      }
+    }
+  }
+
+  &-cell-selected {
+    color: @primary-color;
+  }
+
+  &-cell-in-view.ant-picker-cell-today {
+    .ant-picker-cell-inner {
+      color: @primary-color;
+
+      &::before {
+        border: none;
+        background-color: @primary-color;
+        width: 6px;
+        height: 6px;
+        bottom: -3px !important;
+        left: 10px !important;
+        top: auto !important;
+        right: auto !important;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  &-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+  &-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+  &-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+    background-color: @primary-color !important;
+    border-radius: 50% !important;
+  }
+
+  &-cell-in-view.ant-picker-cell-in-range .ant-picker-cell-inner {
+    color: @primary-color;
+  }
+
+  &-time-panel-cell-inner {
+    text-align: center;
+    padding-left: 0 !important;
+  }
+
+  &-focused {
+    box-shadow: none;
+    border: @input-border;
+  }
+
+  input {
+    box-shadow: none;
+    border: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }

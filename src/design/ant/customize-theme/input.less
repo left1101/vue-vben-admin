@@ -1,0 +1,29 @@
+@import './vars';
+
+.@{theme-name} .ant-input {
+  background-color: @input-bg-color;
+
+  &-affix-wrapper {
+    background-color: @input-bg-color;
+    border: none;
+
+    & > input {
+      background-color: @input-bg-color;
+      color: #1a1a1a !important;
+    }
+
+    &:hover {
+      box-shadow: none;
+      border: @input-border;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border: @input-border;
+    }
+
+    &:not(.ant-input-affix-wrapper-disabled):hover {
+      border-color: @primary-color;
+    }
+  }
+}
