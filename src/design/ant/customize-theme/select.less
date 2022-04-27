@@ -10,8 +10,10 @@
   }
 
   &-focused {
-    box-shadow: none;
-    border: @input-border;
+    .ant-select-selector {
+      border: @input-border !important;
+      box-shadow: none !important;
+    }
   }
 
   &-selection-overflow-item {
@@ -28,6 +30,25 @@
 
       &-selected:not(&-disabled) {
         background-color: @primary-2;
+      }
+    }
+  }
+
+  &-tree-checkbox.ant-select-tree-checkbox-indeterminate {
+    .ant-select-tree-checkbox-inner {
+      position: relative;
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: @primary-color;
+
+      &::after {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        width: 8px;
+        height: 2px;
+        background-color: #fff;
       }
     }
   }
