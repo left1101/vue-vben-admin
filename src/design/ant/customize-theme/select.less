@@ -9,10 +9,18 @@
     }
   }
 
+  &:hover,
   &-focused {
     .ant-select-selector {
       border: @input-border !important;
       box-shadow: none !important;
+    }
+
+    .ant-select-clear,
+    .ant-select-arrow {
+      svg {
+        fill: @primary-color;
+      }
     }
   }
 

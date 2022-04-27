@@ -9,6 +9,17 @@
     min-width: 100%;
   }
 
+  &:hover {
+    border: @input-border;
+
+    .ant-picker-clear,
+    .ant-picker-suffix {
+      svg {
+        fill: @primary-color;
+      }
+    }
+  }
+
   &-focused {
     box-shadow: none;
     border: @input-border;

@@ -6,6 +6,17 @@
   &-affix-wrapper {
     background-color: @input-bg-color;
     border: none;
+    box-shadow: none;
+
+    &-focused {
+      border: @input-border;
+
+      .ant-input-suffix {
+        svg {
+          fill: @primary-color;
+        }
+      }
+    }
 
     & > input {
       background-color: @input-bg-color;
@@ -15,6 +26,12 @@
     &:hover {
       box-shadow: none;
       border: @input-border;
+
+      .ant-input-suffix {
+        svg {
+          fill: @primary-color;
+        }
+      }
     }
 
     &:focus {
