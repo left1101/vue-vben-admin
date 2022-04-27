@@ -6,14 +6,13 @@
       <Button preIcon="ant-design:save-outlined">保存</Button>
       <Button preIcon="ant-design:send-outlined" type="primary">确认发送</Button>
     </template>
-    <div style="min-height: 1085px">
-      <BasicForm
-        :labelWidth="140"
-        :actionColOptions="{ span: 24 }"
-        :schemas="schemas"
-        :show-action-button-group="true"
-      />
-    </div>
+    <BasicForm
+      style="min-height: 1085px"
+      :labelWidth="140"
+      :actionColOptions="{ span: 24 }"
+      :schemas="schemas"
+      show-action-button-group
+    />
   </PageWrapper>
 </template>
 <script lang="ts">

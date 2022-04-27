@@ -613,6 +613,22 @@ const schemas: FormSchema[] = [
       span: 8,
     },
   },
+  {
+    field: 'number-wide',
+    component: 'InputNumber',
+    label: '数字-宽的',
+    colProps: {
+      span: 8,
+    },
+  },
+  {
+    field: 'number-narrow',
+    component: 'InputNumber',
+    label: '数字-短的',
+    colProps: {
+      span: 8,
+    },
+  },
 ];
 
 export default schemas;

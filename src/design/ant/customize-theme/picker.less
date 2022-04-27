@@ -3,14 +3,14 @@
 .@{theme-name} .ant-picker {
   display: flex;
   background-color: @input-bg-color;
-  border: none;
+  border: @input-border-transparent;
 
   &-dropdown {
     min-width: 100%;
   }
 
   &:hover {
-    border: @input-border;
+    border: @input-border-highlight;
 
     .ant-picker-clear,
     .ant-picker-suffix {
@@ -22,7 +22,7 @@
 
   &-focused {
     box-shadow: none;
-    border: @input-border;
+    border: @input-border-highlight;
 
     .ant-picker-clear,
     .ant-picker-suffix {
@@ -34,9 +34,11 @@
 
   input {
     box-shadow: none;
-    border: none;
+    border: @input-border-transparent;
 
+    &:hover,
     &:focus {
+      border: @input-border-transparent;
       box-shadow: none;
     }
   }
@@ -83,8 +85,8 @@
               .ant-picker-cell-inner {
                 height: 40px;
                 background: #fff !important;
-                border: 1px solid @primary-color;
                 color: @primary-color;
+                border: @input-border-highlight;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;

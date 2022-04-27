@@ -169,8 +169,16 @@
   .@{prefix-cls} {
     position: relative;
     margin: 20px;
-    border-radius: 12px;
-    overflow: hidden;
+
+    & > * {
+      &:first-child {
+        border-radius: 12px 12px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 12px 12px;
+      }
+    }
 
     .@{prefix-cls}-content {
       background-color: @component-background;

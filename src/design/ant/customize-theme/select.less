@@ -4,16 +4,16 @@
   &:not(.ant-select-customize-input) {
     .ant-select-selector {
       background-color: @input-bg-color;
-      border: none;
+      border: @input-border-transparent;
       box-shadow: none;
     }
   }
 
   &:hover,
-  &-focused {
+  &-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) {
     .ant-select-selector {
-      border: @input-border !important;
-      box-shadow: none !important;
+      border: @input-border-highlight;
+      box-shadow: none;
     }
 
     .ant-select-clear,

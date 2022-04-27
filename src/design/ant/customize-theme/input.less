@@ -5,11 +5,11 @@
 
   &-affix-wrapper {
     background-color: @input-bg-color;
-    border: none;
+    border: @input-border-transparent;
     box-shadow: none;
 
     &-focused {
-      border: @input-border;
+      border: @input-border-highlight;
 
       .ant-input-suffix {
         svg {
@@ -24,8 +24,8 @@
     }
 
     &:hover {
+      border: @input-border-highlight;
       box-shadow: none;
-      border: @input-border;
 
       .ant-input-suffix {
         svg {
@@ -36,7 +36,7 @@
 
     &:focus {
       box-shadow: none;
-      border: @input-border;
+      border: @input-border-highlight;
     }
 
     &:not(.ant-input-affix-wrapper-disabled):hover {
