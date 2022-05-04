@@ -1,165 +1,198 @@
 @import './vars';
 
-.@{theme-name} .ant-picker {
-  display: flex;
-  background-color: @input-bg-color;
-  border: @input-border-transparent;
+.@{theme-name} {
+  @picker-prefix-cls: ant-picker;
+  @cell: ant-picker-cell;
 
-  &-dropdown {
-    min-width: 100%;
-  }
-
-  &:hover {
-    border: @input-border-highlight;
-
-    .ant-picker-clear,
-    .ant-picker-suffix {
-      svg {
-        fill: @primary-color;
-      }
-    }
-  }
-
-  &-focused {
-    box-shadow: none;
-    border: @input-border-highlight;
-
-    .ant-picker-clear,
-    .ant-picker-suffix {
-      svg {
-        fill: @primary-color;
-      }
-    }
-  }
-
-  input {
-    box-shadow: none;
+  .ant-picker {
+    display: flex;
+    background-color: @input-bg-color;
     border: @input-border-transparent;
 
-    &:hover,
-    &:focus {
-      border: @input-border-transparent;
-      box-shadow: none;
+    &:hover {
+      border: @input-border-highlight;
+
+      .ant-picker-clear,
+      .ant-picker-suffix {
+        svg {
+          fill: @primary-color;
+        }
+      }
     }
-  }
 
-  &-panel-container {
-    min-width: 100%;
+    &-focused {
+      box-shadow: none;
+      border: @input-border-highlight;
 
-    .ant-picker-panels {
+      .ant-picker-clear,
+      .ant-picker-suffix {
+        svg {
+          fill: @primary-color;
+        }
+      }
+    }
+
+    input {
+      box-shadow: none;
+      border: @input-border-transparent;
+
+      &:hover,
+      &:focus {
+        border: @input-border-transparent;
+        box-shadow: none;
+      }
+    }
+
+    &-dropdown {
       min-width: 100%;
     }
 
-    .ant-picker-panel {
-      width: 100%;
-    }
+    &-panel-container {
+      padding: 8px;
+      min-width: 100%;
 
-    .ant-picker-panel,
-    .ant-picker-panels {
-      .ant-picker-date-panel {
-        width: 304px;
+      .ant-picker-panels {
+        min-width: 100%;
+      }
 
-        .ant-picker-body {
+      .ant-picker-panel {
+        width: 100%;
+        border: none;
+      }
+
+      .ant-picker-panel,
+      .ant-picker-panels {
+        .ant-picker-date-panel {
           width: 304px;
 
-          .ant-picker-content {
-            width: 280px;
+          .ant-picker-body {
+            width: 304px;
 
-            .ant-picker-cell.ant-picker-cell-in-view {
-              .ant-picker-cell-inner {
-                width: 40px;
-                height: 40px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-            }
+            .ant-picker-content {
+              width: 280px;
 
-            .ant-picker-cell.ant-picker-cell-end.ant-picker-cell-in-view.ant-picker-cell-range-end,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end {
-              &::before {
-                height: 40px;
-                background-color: #ebf4ff;
-              }
-
-              .ant-picker-cell-inner {
-                height: 40px;
-                background: #fff !important;
-                color: @primary-color;
-                border: @input-border-highlight;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-            }
-
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-start-single,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-selected {
-              &::before {
-                height: 40px;
-                background-color: #ebf4ff;
-              }
-
-              .ant-picker-cell-inner {
-                height: 40px;
-                background-color: @primary-color;
-                color: rgb(255 255 255 / 90%);
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-            }
-
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range {
-              &::before {
-                width: 40px;
-                height: 40px;
-                background-color: #ebf4ff;
-              }
-
-              .ant-picker-cell-inner {
-                width: 40px;
-                height: 40px;
-                color: @primary-color;
-              }
-            }
-
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-today {
-              .ant-picker-cell-inner {
-                color: @primary-color;
-
+              .ant-picker-cell.ant-picker-cell-end.ant-picker-cell-in-view.ant-picker-cell-range-end,
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end {
                 &::before {
-                  border: none;
-                  background-color: #004ea2;
-                  width: 6px;
-                  height: 6px;
-                  bottom: 0;
-                  left: 15px;
-                  top: auto;
-                  right: auto;
-                  border-radius: 3px;
+                  height: 40px;
+                  background-color: @primary-1;
+                }
+
+                .ant-picker-cell-inner {
+                  height: 40px;
+                  background: #fff !important;
+                  color: @primary-color;
+                  border: @input-border-highlight;
+                  border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+              }
+
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range {
+                &::before {
+                  width: 40px;
+                  height: 40px;
+                  background-color: @primary-1;
+                }
+
+                .ant-picker-cell-inner {
+                  width: 40px;
+                  height: 40px;
+                  color: @primary-color;
+                }
+              }
+
+              tbody {
+                tr {
+                  .ant-picker-cell.ant-picker-cell-start.ant-picker-cell-in-view.ant-picker-cell-in-range,
+                  .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:first-of-type {
+                    &::before {
+                      border-top-left-radius: 50%;
+                      border-bottom-left-radius: 50%;
+                    }
+                  }
+
+                  .ant-picker-cell.ant-picker-cell-end.ant-picker-cell-in-view.ant-picker-cell-in-range,
+                  .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:last-of-type {
+                    &::before {
+                      border-top-right-radius: 50%;
+                      border-bottom-right-radius: 50%;
+                    }
+                  }
                 }
               }
             }
+          }
+        }
 
-            tbody {
-              tr {
-                .ant-picker-cell.ant-picker-cell-start.ant-picker-cell-in-view.ant-picker-cell-in-range,
-                .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:first-of-type {
-                  &::before {
-                    border-top-left-radius: 50%;
-                    border-bottom-left-radius: 50%;
-                  }
+        .ant-picker-month-panel,
+        .ant-picker-year-panel {
+          width: 100%;
+
+          .ant-picker-body {
+            .ant-picker-content {
+              .ant-picker-cell.ant-picker-cell-in-view {
+                .ant-picker-cell-inner {
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: auto;
                 }
+              }
 
-                .ant-picker-cell.ant-picker-cell-end.ant-picker-cell-in-view.ant-picker-cell-in-range,
-                .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:last-of-type {
-                  &::before {
-                    border-top-right-radius: 50%;
-                    border-bottom-right-radius: 50%;
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-end.ant-picker-cell-selected {
+                .ant-picker-cell-inner {
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-color: @primary-color;
+                  color: rgb(255 255 255 / 90%);
+                  margin: auto;
+                }
+              }
+
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range,
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end,
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-start {
+                &::before {
+                  height: 50px;
+                  background-color: @primary-1;
+                }
+              }
+
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-end,
+              .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-selected {
+                &::before {
+                  height: 50px;
+                  background-color: @primary-1;
+                }
+              }
+
+              tbody {
+                tr {
+                  .ant-picker-cell.ant-picker-cell-start.ant-picker-cell-in-view.ant-picker-cell-in-range,
+                  .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:first-of-type {
+                    &::before {
+                      border-top-left-radius: 25px;
+                      border-bottom-left-radius: 25px;
+                    }
+                  }
+
+                  .ant-picker-cell.ant-picker-cell-end.ant-picker-cell-in-view.ant-picker-cell-in-range,
+                  .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:last-of-type {
+                    &::before {
+                      border-top-right-radius: 25px;
+                      border-bottom-right-radius: 25px;
+                    }
                   }
                 }
               }
@@ -167,103 +200,211 @@
           }
         }
       }
+    }
 
-      .ant-picker-time-panel {
-        width: 100%;
+    &-footer {
+      margin-top: 16px;
+      padding: 23px;
+      border-bottom: none;
+      border-top: 1px solid @gray-4;
 
-        .ant-picker-content {
-          .ant-picker-time-panel-column {
-            .ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected {
-              padding: 0 10px;
-              scrollbar-width: none;
+      button {
+        height: auto;
+        padding: 5px 16px;
+      }
+    }
 
-              .ant-picker-time-panel-cell-inner {
-                background-color: @primary-color;
-                color: rgb(255 255 255 / 90%);
-              }
+    // ====================== Time Panel ======================
+    &-time-panel {
+      width: 100%;
+
+      .@{picker-prefix-cls}-content {
+        height: 300px;
+      }
+
+      &-column {
+        border: none;
+        padding: 0 13px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+
+        &:not(:first-child) {
+          border: none;
+        }
+
+        > li.@{picker-prefix-cls}-time-panel {
+          &-cell {
+            margin-top: 8px;
+
+            &:first-child {
+              margin-top: 0;
             }
 
-            .ant-picker-time-panel-cell {
-              .ant-picker-time-panel-cell-inner {
-                text-align: center;
-                padding-left: 0 !important;
-              }
+            .@{picker-prefix-cls}-time-panel-cell-inner {
+              border-radius: 3px;
+              text-align: center;
+              padding: 5px 0;
+              font-size: 14px;
+              line-height: 22px;
+            }
+
+            &-selected {
+              border-radius: 3px;
+              background-color: @primary-1;
             }
           }
         }
       }
 
-      .ant-picker-month-panel,
-      .ant-picker-year-panel {
-        width: 100%;
+      &-cell-inner {
+        text-align: center;
+      }
+    }
+  }
 
-        .ant-picker-body {
-          .ant-picker-content {
-            .ant-picker-cell.ant-picker-cell-in-view {
-              .ant-picker-cell-inner {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: auto;
-              }
-            }
+  // ====================== cell ======================
+  @cell-size: 40px;
 
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-end.ant-picker-cell-selected {
-              .ant-picker-cell-inner {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: @primary-color;
-                color: rgb(255 255 255 / 90%);
-                margin: auto;
-              }
-            }
+  .@{cell} {
+    &::before {
+      height: @cell-size;
+    }
 
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-end,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-start {
-              &::before {
-                height: 50px;
-                background-color: #ebf4ff;
-              }
-            }
+    .@{cell}-inner {
+      width: @cell-size;
+      height: @cell-size;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-end,
-            .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-selected {
-              &::before {
-                height: 50px;
-                background-color: #ebf4ff;
-              }
-            }
+  // >>> Today
+  .@{cell}-in-view.@{cell}-today {
+    .@{cell}-inner {
+      color: @primary-color;
 
-            tbody {
-              tr {
-                .ant-picker-cell.ant-picker-cell-start.ant-picker-cell-in-view.ant-picker-cell-in-range,
-                .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:first-of-type {
-                  &::before {
-                    border-top-left-radius: 25px;
-                    border-bottom-left-radius: 25px;
-                  }
-                }
+      &::before {
+        @size: 6px;
 
-                .ant-picker-cell.ant-picker-cell-end.ant-picker-cell-in-view.ant-picker-cell-in-range,
-                .ant-picker-cell.ant-picker-cell-in-view.ant-picker-cell-in-range:last-of-type {
-                  &::before {
-                    border-top-right-radius: 25px;
-                    border-bottom-right-radius: 25px;
-                  }
-                }
-              }
-            }
-          }
+        border: none;
+        background-color: @primary-color;
+        width: @size;
+        height: @size;
+        bottom: 4px;
+        left: calc(50% - @size / 2);
+        top: auto;
+        right: auto;
+        border-radius: 50%;
+      }
+    }
+
+    &.@{cell}-selected {
+      .@{cell}-inner {
+        color: @gray-1;
+
+        &::before {
+          background-color: @gray-1;
         }
+      }
+    }
+  }
+
+  // >>> range and
+  //.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single):not(.ant-picker-cell-range-end) .ant-picker-cell-inner
+
+  .@{cell}-in-view.@{cell}-range-start {
+    &.@{cell}-today,
+    &.@{cell}-today.@{cell}-selected {
+      .@{cell}-inner {
+        color: @gray-1;
+      }
+      .@{cell}-inner::before {
+        background-color: @gray-1;
+      }
+    }
+    &:not(.@{cell}-range-start-single) {
+      &::before {
+        background-color: @primary-1;
+      }
+    }
+    &:not(.@{cell}-range-start-single):not(.@{cell}-range-end) {
+      .@{cell}-inner {
+        border-radius: 50%;
+        color: @gray-1;
+      }
+    }
+  }
+
+  .@{cell}-in-view.@{cell}-range-end {
+    &.@{cell}-today,
+    &.@{cell}-today.@{cell}-selected {
+      .@{cell}-inner {
+        color: @primary-color;
+      }
+      .@{cell}-inner::before {
+        background-color: @primary-color;
+      }
+    }
+  }
+
+  // >>> range:hover
+  .@{cell}-in-view.@{cell}-range-hover-start:not(.@{cell}-in-range):not(.@{cell}-range-start):not(.@{cell}-range-end),
+  .@{cell}-in-view.@{cell}-range-hover-end:not(.@{cell}-in-range):not(.@{cell}-range-start):not(.@{cell}-range-end),
+  .@{cell}-in-view.@{cell}-range-hover-start.@{cell}-range-start-single,
+  .@{cell}-in-view.@{cell}-range-hover-start.@{cell}-range-start.@{cell}-range-end.@{cell}-range-end-near-hover,
+  .@{cell}-in-view.@{cell}-range-hover-end.@{cell}-range-start.@{cell}-range-end.@{cell}-range-start-near-hover,
+  .@{cell}-in-view.@{cell}-range-hover-end.@{cell}-range-end-single,
+  .@{cell}-in-view.@{cell}-range-hover:not(.@{cell}-in-range) {
+    &::after {
+      height: @cell-size;
+      width: @cell-size;
+      left: 0;
+      border-top: 1px dashed @primary-1;
+      border-bottom: 1px dashed @primary-1;
+    }
+
+    &.@{cell}-range-hover-start::after,
+    &.@{cell}-range-hover:first-child::after,
+    &.@{cell}-start.@{cell}-range-hover-edge-start.@{cell}-range-hover-edge-start-near-range::after,
+    &.@{cell}-range-hover-edge-start:not(.@{cell}-range-hover-edge-start-near-range)::after {
+      border-left: 1px dashed @primary-1;
+      border-radius: 50% 0 0 50%;
+    }
+    &.@{cell}-range-hover-end::after,
+    &.@{cell}-range-hover:last-child::after,
+    &.@{cell}-end.@{cell}-range-hover-edge-end.@{cell}-range-hover-edge-end-near-range::after,
+    &.@{cell}-range-hover-edge-end:not(.@{cell}-range-hover-edge-end-near-range)::after {
+      border-right: 1px dashed @primary-1;
+      border-radius: 0 50% 50% 0;
+    }
+  }
+
+  // >>> has-range:hover
+  .@{picker-prefix-cls}-date-panel {
+    .@{cell}-in-view.@{cell}-in-range.@{cell}-range-hover-start,
+    .@{cell}-in-view.@{cell}-in-range.@{cell}-range-hover-end {
+      .@{cell}-inner::after {
+        right: 0;
+        left: 0;
+        background: @primary-3;
+      }
+    }
+
+    .@{cell}-in-view.@{cell}-in-range.@{cell}-range-hover-start {
+      .@{cell}-inner::after {
+        border-radius: 50% 0 0 50%;
+      }
+    }
+
+    .@{cell}-in-view.@{cell}-in-range.@{cell}-range-hover-end {
+      .@{cell}-inner::after {
+        border-radius: 0 50% 50% 0;
       }
     }
   }

@@ -1,0 +1,29 @@
+@import './vars';
+
+.@{theme-name} .ant-cascader {
+  &-menu {
+    border: none;
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 3px;
+    }
+
+    &-item {
+      padding: 9px 8px;
+      border-radius: 3px;
+
+      &-active:not(&-disabled) {
+        &,
+        &:hover {
+          color: @primary-color;
+          font-weight: normal;
+        }
+
+        .ant-cascader-menu-item-expand-icon {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+}
