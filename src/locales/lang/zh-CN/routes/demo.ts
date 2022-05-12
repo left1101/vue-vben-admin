@@ -172,6 +172,7 @@ export default {
   },
   table: {
     table: 'Table',
+    customTableShow: '自定义表格',
     basic: '基础表格',
     treeTable: '树形表格',
     fetchTable: '远程加载示例',

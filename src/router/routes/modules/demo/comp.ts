@@ -127,6 +127,14 @@ const comp: AppRouteModule = {
           },
         },
         {
+          path: 'customTableShow',
+          name: 'customTableShow',
+          component: () => import('/@/views/demo/table/CustomerTable/index.tsx'),
+          meta: {
+            title: t('routes.demo.table.customTableShow'),
+          },
+        },
+        {
           path: 'treeTable',
           name: 'TreeTableDemo',
           component: () => import('/@/views/demo/table/TreeTable.vue'),
