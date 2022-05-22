@@ -1,26 +1,20 @@
 import { defineComponent, ref } from 'vue';
 import ProTable from './ProTable.jsx';
-// import { Table } from 'ant-design-vue';
 import './index.less';
 
 const Demo = defineComponent({
   setup() {
-    const dataSource = ref([
-      {
-        key: '1',
-        name: '胡彦斌',
+    const tableList: any = [];
+    for (let index = 1; index <= 50; index++) {
+      tableList.push({
+        key: `${index}`,
+        name: `胡彦斌-${index}`,
         age: 32,
         address: '西湖区湖底公园1号',
         testHtml: '<div>testHtml</div>',
-      },
-      {
-        key: '2',
-        name: '胡彦祖',
-        age: 42,
-        address: '西湖区湖底公园1号',
-        testHtml: '<div>testHtml</div>',
-      },
-    ]);
+      });
+    }
+    const dataSource = ref(tableList);
 
     const columns = [
       {
@@ -29,46 +23,91 @@ const Demo = defineComponent({
         key: 'name',
         summary: false,
         fixed: true,
-        width: '100px',
-        // canEditable: true,
+        width: '150px',
+        canEditable: true,
         align: 'center',
+        filterFn: (column) => {
+          console.log('filterFn column = ', column);
+          return {
+            type: 'input',
+          };
+        },
       },
       {
         title: '年龄',
         dataIndex: 'age',
         key: 'age',
         summary: true,
-        summaryAppend: '￥',
-        width: '100px',
+        canEditable: true,
+        width: '150px',
         align: 'center',
+        // renderSummary: (t) => {
+        //   return <div>$ {t} 元</div>;
+        // },
+        renderFn: (num) => {
+          return `<div">$ ${num} 元</div>`;
+        },
+        // summaryFn: (column) => {
+        //   console.log('column = ', column);
+        //   return 100;
+        // },
+        filterFn: (column) => {
+          console.log('filterFn column = ', column);
+          return {
+            type: 'input',
+          };
+        },
       },
       {
         title: '住址',
         dataIndex: 'address',
         key: 'address',
         summary: false,
-        width: '100px',
+        canEditable: true,
+        width: '150px',
         align: 'center',
+        filterFn: (column) => {
+          console.log('filterFn column = ', column);
+          return {
+            type: 'select',
+            selectList: ['test1', 'test2', 'test3'],
+          };
+        },
       },
       {
         title: 'testHtml',
         dataIndex: 'testHtml',
         key: 'testHtml',
         summary: false,
-        width: '100px',
+        width: '200px',
         isHtml: true,
         align: 'center',
+        filterFn: (column) => {
+          console.log('filterFn column = ', column);
+          return {
+            type: 'datepicker',
+          };
+        },
       },
       {
         title: 'opration customRender',
         dataIndex: 'name',
         key: 'opration',
         summary: false,
-        width: '100px',
+        width: '200px',
+        fixed: 'right',
         align: 'center',
         customRender: ({ record, index }) => {
           return (
-            <div style={{ backgroundColor: '#e4e4e4' }}>
+            <div
+              style={{
+                backgroundColor: '#e3e3e3',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
               {record.name}
               {index}
             </div>
@@ -126,14 +165,29 @@ const Demo = defineComponent({
       console.log('item, row, column = ', item, row, column);
     };
 
+    // const handleFilterClear = (query) => {
+    //   console.log('handleFilterQuery query = ', query);
+    // };
+
+    const handleFilterClearAll = () => {
+      console.log('handleFilterQuery');
+    };
+
+    const handleFilterQuery = (query) => {
+      console.log('handleFilterQuery query = ', query);
+    };
+
     return () => (
       <div>
         <ProTable
-          // scroll={{ x: 2000 }}
+          scroll={{
+            y: 300,
+            x: 800,
+          }}
           bordered
-          scroll
-          showFilter
-          showSelection={false}
+          showFilter={true}
+          // showSelection={true}
+          // summaryPosition="top"
           v-model:dataSource={dataSource.value}
           v-model:columns={columns}
           // renderTitle={renderTitle}
@@ -141,6 +195,9 @@ const Demo = defineComponent({
           v-slots={{
             title: renderTitle(),
           }}
+          // onFilterClear={handleFilterClear}
+          onFilterClearAll={handleFilterClearAll}
+          onFilterQuery={handleFilterQuery}
           // renderBodyCell={renderBodyCell}
           // renderHeaderCell={renderHeaderCell}
           // rendercustomFilterDropdown
