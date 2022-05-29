@@ -1,5 +1,20 @@
 @import './vars';
 
+.@{theme-name} {
+  input.ant-input,
+  textarea.ant-input {
+    border: @input-border-transparent;
+    box-shadow: none;
+    color: @input-font-color;
+
+    &:hover,
+    &:focus {
+      border: @input-border-highlight;
+      box-shadow: none;
+    }
+  }
+}
+
 .@{theme-name} .ant-input {
   background-color: @input-bg-color;
 
@@ -18,7 +33,8 @@
       }
     }
 
-    & > input {
+    & > input.ant-input {
+      border: none;
       background-color: @input-bg-color;
       color: @input-font-color;
     }
