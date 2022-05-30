@@ -6,6 +6,8 @@
       <Button preIcon="ant-design:save-outlined">保存</Button>
       <Button preIcon="ant-design:send-outlined" type="primary">确认发送</Button>
     </template>
+    <a-input />
+    <a-textarea />
     <BasicForm
       style="min-height: 1085px"
       :labelWidth="140"
