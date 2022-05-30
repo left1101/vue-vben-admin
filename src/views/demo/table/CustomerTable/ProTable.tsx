@@ -51,6 +51,7 @@ const ProTable = defineComponent({
     'renderFooter',
     'renderTitle',
     'onDataChange',
+    'onFilterQuery',
   ],
   setup(props: any, context: any) {
     const { slots, emit } = context;
@@ -126,11 +127,10 @@ const ProTable = defineComponent({
       const obj = Object.entries(filterObjRaw).map((item) => {
         const [key, value] = item;
         const keyTmp = key.split('-');
-        const { filterStr, inputStr } = (value || {}) as any;
+        delete ((value || {}) as any).visible;
         return {
           [keyTmp[0]]: {
-            filterStr,
-            inputStr,
+            ...((value || {}) as any),
           },
         };
       });
@@ -362,9 +362,17 @@ const ProTable = defineComponent({
 
       if (editableData[`${record.key}-${dataIndex}`]) {
         return (
-          <div class="editable-cell-text-wrapper">
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
+          >
             <Input
-              style={{ textAlign: 'center' }}
+              style={{ textAlign: 'center', height: '100%' }}
               v-model:value={editableData[`${record.key}-${dataIndex}`][dataIndex]}
               onPressEnter={() => save(record.key, dataIndex, index)}
               onBlur={() => save(record.key, dataIndex, index)}

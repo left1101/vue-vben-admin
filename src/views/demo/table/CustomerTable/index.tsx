@@ -70,6 +70,32 @@ const Demo = defineComponent({
           console.log('filterFn column = ', column);
           return {
             type: 'select',
+            filterConditionList: [
+              {
+                name: '≥大于等于',
+                value: 'gte',
+              },
+              {
+                name: '>大于',
+                value: 'gt',
+              },
+              {
+                name: '≤小于等于',
+                value: 'lte',
+              },
+              {
+                name: '小于',
+                value: 'lt',
+              },
+              {
+                name: '⊇包含',
+                value: 'contain',
+              },
+              {
+                name: '等于空',
+                value: 'eqnull',
+              },
+            ],
             selectList: ['test1', 'test2', 'test3'],
           };
         },
@@ -116,12 +142,7 @@ const Demo = defineComponent({
       },
     ];
 
-    // watch({
-
-    // })
-
     const renderTitle = () => {
-      console.log('renderTitle');
       return (
         <div>
           <span>renderTitle1</span>
