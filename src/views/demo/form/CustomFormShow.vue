@@ -9,7 +9,6 @@
     <a-input />
     <a-textarea />
     <BasicForm
-      style="min-height: 1085px"
       :labelWidth="140"
       :actionColOptions="{ span: 24 }"
       :schemas="schemas"

@@ -91,7 +91,6 @@
 
       const getClass = computed(() => {
         return [
-          'mytheme',
           prefixCls,
           {
             [`${prefixCls}--dense`]: props.dense,

@@ -383,35 +383,45 @@ const schemas: FormSchema[] = [
   },
   {
     field: 'demo-date-picker',
-    component: 'DatePicker',
     label: '日期选择',
+    component: 'DatePicker',
+    componentProps: {
+      getPopupContainer: () => document.body,
+    },
     colProps: {
       span: 8,
     },
   },
   {
     field: '[demo-date-picker-start, demo-date-picker-end]',
-    component: 'RangePicker',
     label: '日期范围选择',
+    component: 'RangePicker',
+    componentProps: {
+      getPopupContainer: () => document.body,
+    },
     colProps: {
       span: 8,
     },
   },
   {
     field: 'demo-time-picker',
-    component: 'TimePicker',
     label: '时间选择',
+    component: 'TimePicker',
+    componentProps: {
+      getPopupContainer: () => document.body,
+    },
     colProps: {
       span: 8,
     },
   },
   {
     field: '[demo-time-picker-start, demo-time-picker-end]',
+    label: '时间范围选择',
     component: 'TimeRangePicker',
     componentProps: {
       placeholder: ['开始时间', '结束时间'],
+      getPopupContainer: () => document.body,
     },
-    label: '时间范围选择',
     colProps: {
       span: 8,
     },
